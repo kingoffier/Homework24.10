@@ -10,17 +10,34 @@ namespace ConsoleApp12
     {
         static void Main(string[] args)
         {
-            string str = Console.ReadLine();
-            string pattern = "abcdefghijklmnopqrstuvwxyz0123456789_";
-            str = str.ToLower();
-            if (Char.IsDigit(str.First()))
-            {
-                Console.WriteLine("NO");
-            }
-            else
-            {
-                Console.WriteLine("YES");
-            }
+           string str = Console.ReadLine();
+           string pattern = "abcdefghijklmnopqrstuvwxyz0123456789_";
+           str = str.ToLower(); 
+           bool result = true;  
+           if (Char.IsDigit(str.First()))  
+{
+    Console.WriteLine("NO");
+}
+else
+{
+    for (int i = 0; i < str.Length; i++)        
+    {
+        result = pattern.Contains(str[i]);
+        if (result == false)                     
+        {
+            break;                             
+        }
+    }
+    if (result)
+    {
+        Console.WriteLine("Yes");
+    }
+    else
+    {
+        Console.WriteLine("NO");
+    }
+}
+Console.ReadKey();
         }
     }
 }
